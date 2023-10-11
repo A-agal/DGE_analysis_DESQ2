@@ -1,8 +1,8 @@
 ---
-title: "QC methods for DE analysis using DESeq2"
+
 ---
 
-## Learning Objectives 
+## Learning Objectives : "QC methods for DE analysis using DESeq2"
 
 * Transforming counts for unsupervised clustering methods
 * Evaluating quality of samples using Principal Components Analysis
