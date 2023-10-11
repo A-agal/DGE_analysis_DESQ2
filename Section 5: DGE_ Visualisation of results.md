@@ -59,7 +59,8 @@ To pick out a specific gene of interest to plot, for example Mov10, we can use t
 # Plot expression for single gene
 plotCounts(dds, gene="MOV10", intgroup="sampletype") 
 ```
-![topgene](../img/topgen_plot.png)
+![image](https://github.com/A-agal/DGE_analysis_DESQ2/assets/97830463/59a48e2e-74d6-4660-b94a-aa9b5e9c6692)
+
 
 **This function only allows for plotting the counts of a single gene at a time.** 
 
@@ -82,7 +83,8 @@ ggplot(d, aes(x = sampletype, y = count, color = sampletype)) +
 
 > Note that in the plot below (code above), we are using `geom_text_repel()` from the `ggrepel` package to label our individual points on the plot.
 
-<img src="../img/plotCounts_ggrepel.png" width="600">
+![image](https://github.com/A-agal/DGE_analysis_DESQ2/assets/97830463/1e354e24-6676-45a0-8ae2-3c358ac6acf7)
+
 
 #### Using `ggplot2` to plot multiple genes (e.g. top 20)
 
@@ -112,7 +114,8 @@ Now that we have the normalized counts for each of the top 20 genes for all 8 sa
 
 The `gather()` function in the **tidyr** package will perform this operation and will output the normalized counts for all genes for *Mov10_oe_1* listed in the first 20 rows, followed by the normalized counts for *Mov10_oe_2* in the next 20 rows, so on and so forth.
 
-<img src="../img/melt_wide_to_long_format.png" width="800">
+![image](https://github.com/A-agal/DGE_analysis_DESQ2/assets/97830463/9aa7de84-89f7-4c85-9b96-d8231973315a)
+
 
 ```r
 # Gathering the columns to have normalized counts to a single column
@@ -146,7 +149,8 @@ ggplot(gathered_top20_sigOE) +
 	theme(plot.title = element_text(hjust = 0.5))
 ```
 
-<img src="../img/sig_genes_melt2.png" width="700">
+![image](https://github.com/A-agal/DGE_analysis_DESQ2/assets/97830463/79c55adf-3d49-43ba-915d-ad4b745f6be0)
+
 
 ### Heatmap
 
@@ -184,7 +188,8 @@ pheatmap(norm_OEsig,
          height = 20)
 ```
          
-<img src="../img/sigOE_heatmap2.png" width="600">   
+![image](https://github.com/A-agal/DGE_analysis_DESQ2/assets/97830463/2af40a43-8089-42a6-8815-1eafb9fc8e80)
+
 
 > *NOTE:* There are several additional arguments we have included in the function for aesthetics. One important one is `scale="row"`, in which Z-scores are plotted, rather than the actual normalized count value. 
 >
@@ -218,7 +223,8 @@ ggplot(res_tableOE_tb) +
               axis.title = element_text(size = rel(1.25)))  
 ```
 
-<img src="../img/volcano_plot_new1.png" width="500"> 
+![image](https://github.com/A-agal/DGE_analysis_DESQ2/assets/97830463/ad1a9e63-a094-427d-9f3f-f0d648c9bf4d)
+
 
 This is a great way to get an overall picture of what is going on, but what if we also wanted to know where the top 10 genes (lowest padj) in our DE list are located on this plot? We could label those dots with the gene name on the Volcano plot using `geom_text_repel()`.
 
@@ -247,7 +253,8 @@ ggplot(res_tableOE_tb, aes(x = log2FoldChange, y = -log10(padj))) +
               axis.title = element_text(size = rel(1.25))) 
 ```
 
-<img src="../img/volcano_plot_new2.png" width="500"> 
+![image](https://github.com/A-agal/DGE_analysis_DESQ2/assets/97830463/88a46d55-621d-4e4c-844e-62fd663401b6)
+
 
 ***
 
