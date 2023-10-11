@@ -10,7 +10,8 @@
 
 The first step in the DE analysis workflow is count normalization, which is necessary to make accurate comparisons of gene expression between samples.
 
-<img src="../img/deseq_workflow_normalization_2018.png" width="400">
+![deseq_workflow_normalization_2018](https://github.com/A-agal/DGE_analysis_DESQ2/assets/97830463/48f12e44-8cad-4b53-b3b2-e3b10307a560)
+
 
 The counts of mapped reads for each gene is proportional to the expression of RNA ("interesting") in addition to many other factors ("uninteresting"). Normalization is the process of scaling raw count values to account for the "uninteresting" factors. In this way the expression levels are more comparable between and/or within samples.
 
@@ -18,19 +19,22 @@ The main factors often considered during normalization are:
  
  - **Sequencing depth:** Accounting for sequencing depth is necessary for comparison of gene expression between samples. In the example below, each gene appears to have doubled in expression in *Sample A* relative to *Sample B*, however this is a consequence of *Sample A* having double the sequencing depth. 
 
-    <img src="../img/normalization_methods_depth.png" width="400">
-  
+
+   ![normalization_methods_depth](https://github.com/A-agal/DGE_analysis_DESQ2/assets/97830463/cce97c60-56e8-4ddc-a10c-9cff6d62dcd9)
+
 	>***NOTE:** In the figure above, each pink and green rectangle represents a read aligned to a gene. Reads connected by dashed lines connect a read spanning an intron.*
  
  - **Gene length:** Accounting for gene length is necessary for comparing expression between different genes within the same sample. In the example, *Gene X* and *Gene Y* have similar levels of expression, but the number of reads mapped to *Gene X* would be many more than the number mapped to *Gene Y* because *Gene X* is longer.
  
-    <img src="../img/normalization_methods_length.png" width="200">
+   ![normalization_methods_length](https://github.com/A-agal/DGE_analysis_DESQ2/assets/97830463/da3a482a-55cb-40e2-9efe-b20347e75832)
+
  
  - **RNA composition:** A few highly differentially expressed genes between samples, differences in the number of genes expressed between samples, or presence of contamination can skew some types of normalization methods. Accounting for RNA composition is recommended for accurate comparison of expression between samples, and is particularly important when performing differential expression analyses [[1](https://genomebiology.biomedcentral.com/articles/10.1186/gb-2010-11-10-r106)]. 
  
 	In the example, if we were to divide each sample by the total number of counts to normalize, the counts would be greatly skewed by the DE gene, which takes up most of the counts for *Sample A*, but not *Sample B*. Most other genes for *Sample A* would be divided by the larger number of total counts and appear to be less expressed than those same genes in *Sample B*.  
 	
-    <img src="../img/normalization_methods_composition.png" width="400">
+   ![image](https://github.com/A-agal/DGE_analysis_DESQ2/assets/97830463/2968f9b2-1cb0-47d6-9ee8-2d56f56c2490)
+
     
 ***While normalization is essential for differential expression analyses, it is also necessary for exploratory data analysis, visualization of data, and whenever you are exploring or comparing counts between or within samples.***
  
@@ -103,7 +107,8 @@ The median value (column-wise for the above table) of all ratios for a given sam
  
 The figure below illustrates the median value for the distribution of all gene ratios for a single sample (frequency is on the y-axis).
 
-<img src="../img/deseq_median_of_ratios.png" width="400">
+![image](https://github.com/A-agal/DGE_analysis_DESQ2/assets/97830463/39dbad93-b6fd-456a-9f9a-5bce442eb04f)
+
 
 The median of ratios method makes the assumption that not ALL genes are differentially expressed; therefore, the normalization factors should account for sequencing depth and RNA composition of the sample (large outlier genes will not represent the median ratio values). **This method is robust to imbalance in up-/down-regulation and large numbers of differentially expressed genes.**
 
@@ -196,7 +201,8 @@ Let's start by creating the `DESeqDataSet` object and then we can talk a bit mor
 dds <- DESeqDataSetFromMatrix(countData = data, colData = meta, design = ~ sampletype)
 ```
 
-![deseq1](../img/deseq_obj1.png)
+![image](https://github.com/A-agal/DGE_analysis_DESQ2/assets/97830463/a5184ba0-072d-4562-a77e-9302d9ef0490)
+
 
 
 You can use DESeq-specific functions to access the different slots and retrieve information, if you wish. For example, suppose we wanted the original count matrix we would use `counts()` (*Note: we nested it within the `View()` function so that rather than getting printed in the console we can see it in the script editor*) :
@@ -211,7 +217,8 @@ As we go through the workflow we will use the relevant functions to check what i
 
 The next step is to normalize the count data in order to be able to make fair gene comparisons between samples.
 
-<img src="../img/deseq_workflow_normalization_2018.png" width="400">
+![image](https://github.com/A-agal/DGE_analysis_DESQ2/assets/97830463/7560304a-ad07-42a4-83f9-91e328e94957)
+
 
 To perform the **median of ratios method** of normalization, DESeq2 has a single `estimateSizeFactors()` function that will generate size factors for us. We will use the function in the example below, but **in a typical RNA-seq analysis this step is automatically performed by the `DESeq()` function**, which we will see later. 
 
