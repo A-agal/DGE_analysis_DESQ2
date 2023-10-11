@@ -1,6 +1,6 @@
 ---
-title: "Count normalization with DESeq2"
-## Learning Objectives 
+
+## Learning Objectives : "Count normalization with DESeq2"
 
 * Explore different types of normalization methods
 * Become familiar with the `DESeqDataSet` object 
