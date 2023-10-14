@@ -134,19 +134,5 @@ title: "DGE Analysis Homework"
 
 	**j.** Subset the KD results into a new table using the `criteria_kd vector`:
 
-	**k.**  Use the following linked datasets as the significant genes using a different workflow (STAR alignment + featureCounts + DESeq2), but same samples. Download them via these links:
 	
-	[Download OE genes (870 genes)](https://wiki.harvard.edu/confluence/download/attachments/216318985/Mov10_oe_2017.txt?version=1&modificationDate=1498507515000&api=v2)
-	
-	[Download KD genes (689 genes)](https://wiki.harvard.edu/confluence/download/attachments/216318985/Mov10_kd_2017.txt?version=1&modificationDate=1498507515000&api=v2)
-	
-	Load these gene lists in as `star_KD` and `star_OE`, using the `scan()` function in R (write your code below):
-
-	**l.** Find overlapping OE genes between those that you have identified in your subsetted results table (using the Salmon abundance estimates) to the `star_OE` gene list.
-	
-	- How many genes overlap?
-
-	**m.** Find overlapping KD genes between those that you have identified in your subsetted results table (using the Salmon abundance estimates) to the `star_KD` gene list.
-	
-	- How many genes overlap?
  
