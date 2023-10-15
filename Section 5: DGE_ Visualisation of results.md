@@ -23,6 +23,7 @@ library(DEGreport)
 library(RColorBrewer)
 library(DESeq2)
 library(pheatmap)
+library(ggrepl)
 ```
 
 > **NOTE:** Since we are using the `tidyverse` suite of packages, we may run into conflicts with functions that have the same name but are part of different packages (i.e `filter`). If you run the code and run into an error try re-running the code using syntax where you specify package explicitly (i.e `dplyr::filter`).
