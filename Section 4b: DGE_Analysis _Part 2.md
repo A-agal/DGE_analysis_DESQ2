@@ -102,7 +102,7 @@ contrast_oe <- c("sampletype", "MOV10_overexpression", "control")
 
 res_tableOE_unshrunken <- results(dds, contrast=contrast_oe, alpha = 0.05)
 
-res_tableOE <- lfcShrink(dds, contrast=contrast_oe, res=res_tableOE_unshrunken)
+res_tableOE <- lfcShrink(dds, coef=2, type="apeglm")
 ```
 
 **The order of the names determines the direction of fold change that is reported.** The name provided in the second element is the level that is used as baseline. So for example, if we observe a log2 fold change of -2 this would mean the gene expression is lower in Mov10_oe relative to the control. 
