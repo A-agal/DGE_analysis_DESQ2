@@ -25,7 +25,7 @@ title: "DGE Analysis Homework"
 	|sample12	|KO	|typeB	|second|
 
 
-	**NOTE: This is an exercise in thinking about running DESeq2. You do not need to run any code in R/RStudio. Refer to the materials/lessons from class to answer the following questions.**
+	**NOTE: This is an exercise in thinking about running DESeq2. You will need to submit a functioning code that answers the following exercises. Refer to the materials/lessons from class to answer the following questions.**
 
 	**a.** Reorder the columns of the `counts` dataset such that `rownames(meta) == colnames(counts)`.
 	
