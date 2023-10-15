@@ -79,6 +79,7 @@ library(RColorBrewer)
 library(DESeq2)
 library(pheatmap)
 library(DEGreport)
+library(dplyr
 ```
 
 ### Loading data
