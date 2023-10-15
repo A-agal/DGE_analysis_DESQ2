@@ -69,6 +69,11 @@ For this analysis we will be using several R packages, some which have been inst
 ```r
 ## Setup
 ### Bioconductor and CRAN libraries used
+if (!require("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+
+BiocManager::install("DEGreport")
+
 library(tidyverse)
 library(RColorBrewer)
 library(DESeq2)
